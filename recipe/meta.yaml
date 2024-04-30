@@ -34,15 +34,11 @@ requirements:
     - xz
   run:
     - python
-    - pyarrow >=6.0.1  # [not win]
-    - pyarrow >=6.0.1,<7.0.0  # [win]
+    - pyarrow >=7.0.0
     - fsspec
-    - psutil
     - tqdm
     - typing-extensions >=4.0.0  # [py<310]
     - pickle5 >=0.0.12  # [py<38]
-    # From fsspec[http]
-    - aiohttp !=4.0.0a0,!=4.0.0a1
 
 test:
   imports:
