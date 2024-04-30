@@ -1,5 +1,5 @@
 {% set name = "getdaft" %}
-{% set version = "0.2.21" %}
+{% set version = "0.2.22" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/getdaft-{{ version }}.tar.gz
-  sha256: 9b35394619817557eddcfb5402d93478b3a1ef4bf245bb2735106d4d304de98b
+  sha256: 23f4a08e3f67d3c309b25ff28cd36509542a6ff8da41e2e4d7fec39c3fbe0583
 
 build:
   skip: true  # [py<37]
@@ -22,6 +22,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('rust') }} 1.77
     - pkg-config
     - make
@@ -40,7 +41,6 @@ requirements:
     - tqdm
     - typing-extensions >=4.0.0  # [py<310]
     - pickle5 >=0.0.12  # [py<38]
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     # From fsspec[http]
     - aiohttp !=4.0.0a0,!=4.0.0a1
 
