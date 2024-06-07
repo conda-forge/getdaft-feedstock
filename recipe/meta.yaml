@@ -1,5 +1,5 @@
 {% set name = "getdaft" %}
-{% set version = "0.2.26" %}
+{% set version = "0.2.27" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/getdaft-{{ version }}.tar.gz
-  sha256: 95f0223fa31aca1aabdea09a97f09e6a530fca0e2154e028a26986b4791daf45
+  sha256: fcb62ddc260c7a8ac8cfaada87d5dd38b46886b02d9b8fe57a27d2aa176325d3
 
 build:
   skip: true  # [py<37]
