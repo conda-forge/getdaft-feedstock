@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/getdaft-{{ version }}.tar.gz
-  sha256: 1389ef47caa61f0daf3217b4bd5042b50e854bfb1315b104341110c09a6c072f
+  url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: f6e1e3fff4fbc1f0bef6f15c3143930450fc8c7c50fed4e67867015ce4bc70bb
 
 build:
   skip: true  # [py<37]
