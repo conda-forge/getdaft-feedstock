@@ -23,7 +23,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('rust') }} 1.78
+    - {{ compiler('rust') }} 1.80
     - pkg-config
     - make
   host:
