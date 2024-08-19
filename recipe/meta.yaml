@@ -24,6 +24,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('rust') }} 1.79
+    # Force this version to avoid issues with strict channel pinning
+    - rust 1.79.0.dev20240401
     - pkg-config
     - make
   host:
