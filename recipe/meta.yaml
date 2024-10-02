@@ -23,10 +23,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('rust') }} 1.79
-    # Force this version to avoid issues with strict channel pinning
-    - rust 1.79.0.dev20240401
-    - conda-forge/label/rust_dev::rust_{{ target_platform }}
+    - {{ compiler('rust') }}
     - pkg-config
     - make
   host:
