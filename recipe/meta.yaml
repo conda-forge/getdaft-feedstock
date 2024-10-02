@@ -1,5 +1,5 @@
 {% set name = "getdaft" %}
-{% set version = "0.2.33" %}
+{% set version = "0.3.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: e3e637a2702ad7c43d95f1d3a116e686eb487c68dcfc4a063bd83c61f317bf04
+  sha256: aadd849175bc47231fe81a602d74fd75887ffa1d566015c0bebb062681916883
 
 build:
   skip: true  # [py<37]
@@ -23,10 +23,10 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('rust') }} 1.79
+    - {{ compiler('rust') }} # 1.79
     # Force this version to avoid issues with strict channel pinning
-    - rust 1.79.0.dev20240401
-    - conda-forge/label/rust_dev::rust_{{ target_platform }}
+    # - rust 1.79.0.dev20240401
+    # - conda-forge/label/rust_dev::rust_{{ target_platform }}
     - pkg-config
     - make
   host:
