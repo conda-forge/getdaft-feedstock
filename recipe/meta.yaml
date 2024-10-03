@@ -1,5 +1,5 @@
 {% set name = "getdaft" %}
-{% set version = "0.3.4" %}
+{% set version = "0.3.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: aadd849175bc47231fe81a602d74fd75887ffa1d566015c0bebb062681916883
+  sha256: 8bdfbd38a030604358355b6406f803f1c0c5c317396917126f4b2fa60af487e1
 
 build:
-  skip: true  # [py<37]
+  skip: true  # [py<38]
   script:
     - set OPENSSL_DIR=%LIBRARY_PREFIX%  # [win]
     - set OPENSSL_NO_VENDOR=1  # [win]
@@ -23,15 +23,12 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('rust') }} # 1.79
-    # Force this version to avoid issues with strict channel pinning
-    # - rust 1.79.0.dev20240401
-    # - conda-forge/label/rust_dev::rust_{{ target_platform }}
+    - {{ compiler('rust') }}
     - pkg-config
     - make
   host:
     - python
-    - maturin >=1.2.0,<1.3.0
+    - maturin >=1.5.0,<2.0.0
     - pip
     - openssl
     - xz
@@ -41,7 +38,6 @@ requirements:
     - fsspec
     - tqdm
     - typing-extensions >=4.0.0  # [py<310]
-    - pickle5 >=0.0.12  # [py<38]
 
 test:
   imports:
