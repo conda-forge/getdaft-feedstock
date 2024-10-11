@@ -1,5 +1,5 @@
 {% set name = "getdaft" %}
-{% set version = "0.3.6" %}
+{% set version = "0.3.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 75813d29d3ed5d346bd8e519d7faa3b345dbedfa1a50749275cd7ce03211144e
+  sha256: 531794d46abf182319a40a124d58fad06f10bca270976917b8bffb78e016c471
 
 build:
   skip: true  # [py<38]
