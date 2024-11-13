@@ -21,8 +21,9 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
     - pkg-config
     - make
