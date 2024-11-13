@@ -1,5 +1,5 @@
 {% set name = "getdaft" %}
-{% set version = "0.3.12" %}
+{% set version = "0.3.13" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: c497a7f79fdd163e110921ba27b492e41e737cffb58175e5ed75009c2e2699ed
+  sha256: 47bfbdfa8380855ee1ff45f6b5c572dbcabb2ceb00033bbc6f4bfd62829b1b0f
 
 build:
   skip: true  # [py<38]
@@ -21,8 +21,9 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
     - pkg-config
     - make
