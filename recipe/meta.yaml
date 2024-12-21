@@ -1,5 +1,5 @@
 {% set name = "getdaft" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 035dc9957937894f25f2078e5d177239d669be3a4caefc034042818329210b17
+  sha256: 573112404cd721d70ba4a45389b2edcf8e407c0a6020a59015dd76d225e8c41f
 
 build:
   skip: true  # [py<38]
@@ -17,7 +17,7 @@ build:
     - export OPENSSL_DIR=${PREFIX}  # [unix]
     - export OPENSSL_NO_VENDOR=1  # [unix]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
