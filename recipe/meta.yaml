@@ -35,10 +35,10 @@ requirements:
     - xz-tools
   run:
     - python
-    - pyarrow >=7.0.0
+    - pyarrow >=8.0.0
     - fsspec
     - tqdm
-    - typing-extensions >=4.0.0  # [py<310]
+    - typing_extensions >=4.0.0  # [py<310]
 
 test:
   imports:
