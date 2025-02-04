@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: f4dda16af1a27d96ebab40447fed654724f45cb3a82cd7b0bc884fa871a703c7
+  sha256: 3a63ab1e8d7069a20ce56e82f05fdc7a294c88e54996ecad7a50ffa410c8d605
 
 build:
   skip: true  # [py<38]
