@@ -25,7 +25,7 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('rust') }} 1.86.0.dev20250110-h7cb67c2
+    - {{ compiler('rust') }} 1.86.0.dev20250110
     - pkg-config
     - make
     - cargo-bundle-licenses
