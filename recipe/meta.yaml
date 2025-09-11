@@ -11,18 +11,6 @@ source:
 
 build:
   skip: true  # [py<38]
-  script:
-    - set OPENSSL_DIR=%LIBRARY_PREFIX%  # [win]
-    - set OPENSSL_NO_VENDOR=1  # [win]
-    - export OPENSSL_DIR=${PREFIX}  # [unix]
-    - export OPENSSL_NO_VENDOR=1  # [unix]
-    - curl -fsSL https://bun.sh/install | bash  # [unix]
-    - pushd ./src/daft-dashboard/frontend  # [unix]
-    - ~/.bun/bin/bun install  # [unix]
-    - ~/.bun/bin/bun run build  # [unix]
-    - popd  # [unix]
-    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
