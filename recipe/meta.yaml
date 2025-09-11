@@ -16,7 +16,7 @@ build:
     - set OPENSSL_NO_VENDOR=1  # [win]
     - export OPENSSL_DIR=${PREFIX}  # [unix]
     - export OPENSSL_NO_VENDOR=1  # [unix]
-    - curl -fsSL https://bun.sh/install | bash # [unix]
+    - curl -fsSL https://bun.sh/install | bash  # [unix]
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
@@ -30,6 +30,7 @@ requirements:
     - pkg-config
     - make
     - cargo-bundle-licenses
+    - unzip  # [unix]
   host:
     - python
     - maturin >=1.5.0,<2.0.0
