@@ -46,7 +46,7 @@ requirements:
     - pyarrow >=8.0.0
     - fsspec
     - tqdm
-    - typing_extensions >=4.0.0  # [py<310]
+    - typing_extensions
 
 test:
   imports:
