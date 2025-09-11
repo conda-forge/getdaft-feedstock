@@ -17,6 +17,9 @@ build:
     - export OPENSSL_DIR=${PREFIX}  # [unix]
     - export OPENSSL_NO_VENDOR=1  # [unix]
     - curl -fsSL https://bun.sh/install | bash  # [unix]
+    - cd ./src/daft-dashboard/frontend  # [unix]
+    - bun install  # [unix]
+    - bun run build  # [unix]
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
