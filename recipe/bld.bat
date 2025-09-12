@@ -6,8 +6,8 @@ powershell -c "irm bun.sh/install.ps1|iex"
 
 REM build dashboard assets using bun
 pushd .\src\daft-dashboard\frontend
-"$env:USERPROFILE\.bun\bin\bun" install
-"$env:USERPROFILE\.bun\bin\bun" run build
+%USERPROFILE%\.bun\bin\bun" install
+%USERPROFILE%\.bun\bin\bun" run build
 popd
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
