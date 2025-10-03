@@ -1,13 +1,11 @@
 set OPENSSL_DIR=%LIBRARY_PREFIX%
 set OPENSSL_NO_VENDOR=1
 
-REM install bun
-powershell -c "irm bun.sh/install.ps1|iex"
-
 REM build dashboard assets using bun
+cd daft
 pushd .\src\daft-dashboard\frontend
-"%USERPROFILE%\.bun\bin\bun" install
-"%USERPROFILE%\.bun\bin\bun" run build
+"%SRC_DIR%\bun\bun" install
+"%SRC_DIR%\bun\bun" run build
 popd
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
