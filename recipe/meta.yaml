@@ -1,6 +1,5 @@
 {% set name = "getdaft" %}
 {% set version = "0.6.1" %}
-{% set bun_version = "1.2.23" %}
 
 package:
   name: {{ name|lower }}
