@@ -55,8 +55,8 @@ about:
   summary: Distributed Dataframes for Multimodal Data
   license: Apache-2.0
   license_file:
-    - daft/LICENSE
-    - daft/THIRDPARTY.yml
+    - LICENSE
+    - THIRDPARTY.yml
 
 extra:
   recipe-maintainers:
