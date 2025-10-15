@@ -1,27 +1,31 @@
-{% set name = "getdaft" %}
-{% set version = "0.6.1" %}
+schema_version: 1
 
-package:
-  name: {{ name|lower }}
-  version: {{ version }}
+context:
+  name: "getdaft"
+  version: "0.6.1"
 
 source:
-  url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
+  url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v${{ version }}.tar.gz
   sha256: ab91ec480a7de04c02cbe4285c01e6b47b7d1afa37d7a1e1da72ee1ed839fd3c
+
+recipe:
+  name: ${{ name | lower }}
+  version: ${{ version }}
 
 build:
   number: 0
 
 requirements:
   build:
-    - {{ stdlib('c') }}
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('rust') }}
     - pkg-config
     - make
     - cargo-bundle-licenses
-    - unzip  # [unix]
+    - if: unix
+      then: unzip
     - nodejs
   host:
     - python
@@ -36,13 +40,15 @@ requirements:
     - tqdm
     - typing_extensions >=4.0.0
 
-test:
-  imports:
-    - daft
-  commands:
-    - pip check
-  requires:
-    - pip
+tests:
+  - python:
+      imports:
+        - daft
+  - script:
+      - pip check
+    requirements:
+      run:
+        - pip
 
 about:
   home: https://www.getdaft.io/
