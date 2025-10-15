@@ -5,11 +5,13 @@ REM build dashboard assets using bun
 pushd .\src\daft-dashboard\frontend
 if errorlevel 1 exit 1
 npm install --no-audit
+echo ERRORLEVEL=%ERRORLEVEL%
 if errorlevel 1 exit 1
 npm run build
 if errorlevel 1 exit 1
 popd
 if errorlevel 1 exit 1
+
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 if errorlevel 1 exit 1
 
