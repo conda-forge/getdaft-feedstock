@@ -4,13 +4,9 @@ set OPENSSL_NO_VENDOR=1
 REM build dashboard assets using bun
 pushd .\src\daft-dashboard\frontend
 if errorlevel 1 exit 1
-echo ERRORLEVEL=%ERRORLEVEL%
-echo BEFORE_NPM_INSTALL
-npm install --no-audit
-echo AFTER_NPM_INSTALL
-echo ERRORLEVEL=%ERRORLEVEL%
+call npm install
 if errorlevel 1 exit 1
-npm run build
+call npm run build
 if errorlevel 1 exit 1
 popd
 if errorlevel 1 exit 1
