@@ -8,9 +8,6 @@ package:
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v{{ version }}.tar.gz
   sha256: ab91ec480a7de04c02cbe4285c01e6b47b7d1afa37d7a1e1da72ee1ed839fd3c
-  patches:
-    # patch `src/daft-dashboard/build.rs` to use node
-    - 01-use-node-instead-of-bun.patch
 
 build:
   skip: true  # [py<38]
@@ -19,6 +16,11 @@ build:
     - set OPENSSL_NO_VENDOR=1  # [win]
     - export OPENSSL_DIR=${PREFIX}  # [unix]
     - export OPENSSL_NO_VENDOR=1  # [unix]
+    # build frontend components with npm
+    - pushd ./src/daft-dashboard/frontend
+    - npm install
+    - npm run build
+    - popd
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
@@ -33,7 +35,6 @@ requirements:
     - make
     - cargo-bundle-licenses
     - unzip  # [unix]
-    - nodejs
   host:
     - python
     - maturin >=1.5.0,<2.0.0
