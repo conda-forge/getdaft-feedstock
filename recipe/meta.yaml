@@ -10,22 +10,6 @@ source:
   sha256: ab91ec480a7de04c02cbe4285c01e6b47b7d1afa37d7a1e1da72ee1ed839fd3c
 
 build:
-  script:
-    - set OPENSSL_DIR=%LIBRARY_PREFIX%  # [win]
-    - set OPENSSL_NO_VENDOR=1  # [win]
-    - export OPENSSL_DIR=${PREFIX}  # [unix]
-    - export OPENSSL_NO_VENDOR=1  # [unix]
-    # build frontend components with npm
-    - pushd ./src/daft-dashboard/frontend  # [unix]
-    - pushd src\daft-dashboard\frontend  # [win]
-    - echo %cd%  # [win]
-    - npm install
-    - npm run build
-    - popd
-    - echo 'Done running `npm run build`'
-    - echo %cd%  # [win]
-    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
