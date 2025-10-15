@@ -18,9 +18,12 @@ build:
     # build frontend components with npm
     - pushd ./src/daft-dashboard/frontend  # [unix]
     - pushd src\daft-dashboard\frontend  # [win]
+    - echo %cd%  # [win]
     - npm install
     - npm run build
     - popd
+    - echo 'Done running `npm run build`'
+    - echo %cd%  # [win]
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
