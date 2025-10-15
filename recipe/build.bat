@@ -4,6 +4,8 @@ set OPENSSL_NO_VENDOR=1
 REM build dashboard assets using bun
 pushd .\src\daft-dashboard\frontend
 if errorlevel 1 exit 1
+npm audit fix --force
+if errorlevel 1 exit 1
 npm install
 if errorlevel 1 exit 1
 npm run build
