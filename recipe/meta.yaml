@@ -10,7 +10,6 @@ source:
   sha256: ab91ec480a7de04c02cbe4285c01e6b47b7d1afa37d7a1e1da72ee1ed839fd3c
 
 build:
-  skip: true  # [py<38]
   script:
     - set OPENSSL_DIR=%LIBRARY_PREFIX%  # [win]
     - set OPENSSL_NO_VENDOR=1  # [win]
