@@ -16,7 +16,8 @@ build:
     - export OPENSSL_DIR=${PREFIX}  # [unix]
     - export OPENSSL_NO_VENDOR=1  # [unix]
     # build frontend components with npm
-    - pushd ./src/daft-dashboard/frontend
+    - cd ./src/daft-dashboard/frontend  # [unix]
+    - cd src\daft-dashboard\frontend  # [win]
     - npm install
     - npm run build
     - popd
