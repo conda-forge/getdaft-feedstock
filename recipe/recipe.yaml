@@ -8,7 +8,7 @@ source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v${{ version }}.tar.gz
   sha256: ab91ec480a7de04c02cbe4285c01e6b47b7d1afa37d7a1e1da72ee1ed839fd3c
 
-recipe:
+package:
   name: ${{ name | lower }}
   version: ${{ version }}
 
@@ -51,14 +51,14 @@ tests:
         - pip
 
 about:
-  home: https://www.getdaft.io/
-  dev_url: https://github.com/Eventual-Inc/Daft
-  doc_url: https://www.getdaft.io/projects/docs/
-  summary: Distributed Dataframes for Multimodal Data
   license: Apache-2.0
+  summary: Distributed Dataframes for Multimodal Data
   license_file:
     - LICENSE
     - THIRDPARTY.yml
+  homepage: https://www.getdaft.io/
+  repository: https://github.com/Eventual-Inc/Daft
+  documentation: https://www.getdaft.io/projects/docs/
 
 extra:
   recipe-maintainers:
