@@ -34,6 +34,7 @@ requirements:
     - make
     - cargo-bundle-licenses
     - unzip  # [unix]
+    - nodejs
   host:
     - python
     - maturin >=1.5.0,<2.0.0
