@@ -328,4 +328,5 @@ Feedstock Maintainers
 =====================
 
 * [@thewchan](https://github.com/thewchan/)
+* [@whophil](https://github.com/whophil/)
 
