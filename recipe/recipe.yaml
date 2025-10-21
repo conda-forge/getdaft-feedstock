@@ -39,6 +39,7 @@ requirements:
     - fsspec
     - tqdm
     - typing_extensions >=4.0.0
+    - packaging
 
 tests:
   - python:
