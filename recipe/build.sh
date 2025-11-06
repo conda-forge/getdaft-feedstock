@@ -11,7 +11,7 @@ npm run build
 popd
 
 # aws-lc-sys jitterentropy raises when compiled with -02
-CFLAGS="${CFLAGS//-O2/-O0}"
+export CFLAGS="${CFLAGS//-O2/-O0}"
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 ${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
