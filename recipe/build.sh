@@ -10,11 +10,15 @@ npm install
 npm run build
 popd
 
-# aws-lc-sys jitterentropy raises when compiled with -02
+# aws-lc-sys jitterentropy raises when compiled with -O1/-O2/-O3
+# use -O0 in all CFLAGS* env vars
 for var in $(env | grep -o '^CFLAGS[^=]*'); do
     eval "export $var=\"$(eval echo \$$var | sed 's/-O[0-3]/-O0/g')\""
 done
 
+# in the future, can probably just do this instead
+# https://github.com/aws/aws-lc-rs/issues/912#issuecomment-3403526421
+# (needs to wait until daft bumps to 0.32.3)
 # export AWS_LC_SYS_NO_JITTER_ENTROPY=1
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
