@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: c01b60ed452ef88a6b1a5765cb1baf5e705d49a72670a445074ee04c75800a66
+  sha256: 98841e0a0365a469edaab2cc554b0a641a85b786673a60ab7cc36c06c5c5cfd6
 
 build:
   number: 0
