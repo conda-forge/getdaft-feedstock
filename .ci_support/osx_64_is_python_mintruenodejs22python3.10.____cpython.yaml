@@ -18,8 +18,10 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '19'
+is_python_min:
+- true
 macos_machine:
-- arm64-apple-darwin20.0.0
+- x86_64-apple-darwin13.4.0
 nodejs:
 - '22'
 openssl:
@@ -33,7 +35,9 @@ python:
 rust_compiler:
 - rust
 target_platform:
-- osx-arm64
+- osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - is_python_min
