@@ -23,7 +23,7 @@ source:
 build:
   number: 0
   skip:
-    - unix and not is_python_min
+    - unix
   script:
     env:
       # Per conda-forge.org/docs/maintainer/example_recipes/rust/ — recommended
