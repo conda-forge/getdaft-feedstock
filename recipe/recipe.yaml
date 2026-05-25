@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
@@ -22,20 +23,27 @@ source:
 build:
   number: 0
   skip:
-    - win
+    - unix and not is_python_min
+  script:
+    env:
+      # Per conda-forge.org/docs/maintainer/example_recipes/rust/ — recommended
+      # for any Rust build. cargo build (invoked via maturin) inherits these
+      # and produces a stripped + LTO-optimized cdylib.
+      CARGO_PROFILE_RELEASE_STRIP: symbols
+      CARGO_PROFILE_RELEASE_LTO: fat
+    # build.sh / build.bat are auto-discovered by rattler-build.
 
 requirements:
   build:
+    - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('rust') }}
     - if: build_platform != target_platform
       then:
         - cross-python_${{ target_platform }}
         - python
         - maturin >=1.5.0,<2.0.0
-
-    - ${{ stdlib('c') }}
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ compiler('rust') }}
     - pkg-config
     - make
     - cargo-bundle-licenses
@@ -52,7 +60,7 @@ requirements:
     - python
     # Upper caps match daft's pyproject.toml dependencies (v0.7.14).
     # pip check fails if these aren't honored — upstream tests against
-    # these specific ranges; bump on the next daft version, which removes
+    # these specific ranges; bump on the next daft version.
     # pins for pyarrow and fsspec https://github.com/Eventual-Inc/Daft/blob/v0.7.14/pyproject.toml#L6C1-L13C2
     - pyarrow >=8.0.0,<24.0.0
     - fsspec <2026.3.0
