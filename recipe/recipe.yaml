@@ -24,14 +24,13 @@ build:
   number: 0
   skip:
     - unix
+
   script:
     env:
       # Per conda-forge.org/docs/maintainer/example_recipes/rust/ — recommended
       # for any Rust build. cargo build (invoked via maturin) inherits these
       # and produces a stripped + LTO-optimized cdylib.
       CARGO_PROFILE_RELEASE_STRIP: symbols
-      CARGO_PROFILE_RELEASE_LTO: fat
-    # build.sh / build.bat are auto-discovered by rattler-build.
 
 requirements:
   build:
@@ -61,7 +60,6 @@ requirements:
     # Upper caps match daft's pyproject.toml dependencies (v0.7.14).
     # pip check fails if these aren't honored — upstream tests against
     # these specific ranges; bump on the next daft version.
-    # pins for pyarrow and fsspec https://github.com/Eventual-Inc/Daft/blob/v0.7.14/pyproject.toml#L6C1-L13C2
     - pyarrow >=8.0.0,<24.0.0
     - fsspec <2026.3.0
     - tqdm <4.68.0
