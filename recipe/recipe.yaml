@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "getdaft"
-  version: "0.6.13"
+  version: "0.7.19"
 
 package:
   name: ${{ name | lower }}
@@ -10,10 +10,21 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: ff2705e21dcdbfc60ac8e8e363fc17d405a54c753b2f1c792a7ea45776ec1303
+  sha256: 2e3e18805ea05d5923399200c37ce95b041183ca2cde3b1a64da9a798e5984e0
+  patches:
+    # daft v0.7.19 pins nightly-2025-09-03 via rust-toolchain.toml; conda-forge's
+    # rust toolchain ships a much newer nightly where ArrayChunks::into_remainder
+    # was de-Option-wrapped. Patch drops the Some() unwrap so the crate builds
+    # against any current nightly. Drop on the next upstream daft bump that
+    # adopts the new API.
+    - patches/0001-fix-into_remainder-api.patch
 
 build:
   number: 0
+  skip:
+    # daft does not build cleanly on Windows for the 0.7.x series; Windows
+    # support is being handled separately (see feedstock PR #68).
+    - win
 
 requirements:
   build:
@@ -40,9 +51,11 @@ requirements:
     - xz-tools
   run:
     - python
-    - pyarrow >=8.0.0
-    - fsspec
-    - tqdm
+    # Ranges match daft v0.7.19's pyproject.toml dependencies; pip check
+    # fails if the upper caps aren't honored. Revisit on the next daft bump.
+    - pyarrow >=16.0.0,<25.0.0
+    - fsspec <2026.5.0
+    - tqdm <4.68.0
     - typing_extensions >=4.0.0
     - packaging
 
@@ -70,3 +83,4 @@ extra:
   recipe-maintainers:
     - thewchan
     - whophil
+    - killua156
