@@ -32,6 +32,8 @@ python:
 - 3.10.* *_cpython
 rust_compiler:
 - rust
+rust_compiler_version:
+- 1.92.0.dev20250918
 target_platform:
 - osx-arm64
 zip_keys:
