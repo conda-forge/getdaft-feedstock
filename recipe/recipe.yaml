@@ -11,13 +11,6 @@ package:
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 2e3e18805ea05d5923399200c37ce95b041183ca2cde3b1a64da9a798e5984e0
-  patches:
-    # daft v0.7.19 pins nightly-2025-09-03 via rust-toolchain.toml; conda-forge's
-    # rust toolchain ships a much newer nightly where ArrayChunks::into_remainder
-    # was de-Option-wrapped. Patch drops the Some() unwrap so the crate builds
-    # against any current nightly. Drop on the next upstream daft bump that
-    # adopts the new API.
-    - patches/0001-fix-into_remainder-api.patch
 
 build:
   number: 0

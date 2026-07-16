@@ -4,3 +4,9 @@ MACOSX_SDK_VERSION:     # [osx and x86]
   - '11.0'              # [osx and x86]
 channel_sources:
 - conda-forge/label/rust_dev,conda-forge
+# daft v0.7.19 pins nightly-2025-09-03 (rust-toolchain.toml). Pin the closest
+# rust_dev nightly to the toolchain upstream actually builds against; the newest
+# rust_dev nightly ICEs compiling daft-csv (async trait selection). Bump this in
+# lockstep with daft's rust-toolchain.toml on future version updates.
+rust_compiler_version:
+- '1.92.0.dev20250918'
