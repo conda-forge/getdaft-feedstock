@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "getdaft"
-  version: "0.7.19"
+  version: "0.7.21"
 
 package:
   name: ${{ name | lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/Eventual-Inc/Daft/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 2e3e18805ea05d5923399200c37ce95b041183ca2cde3b1a64da9a798e5984e0
+  sha256: 363dc26ecd0bcd1a679c1e4cc3fd69307c1ecb4c5e443d4a8c5358a77f9e9e29
 
 build:
   number: 0
