@@ -6,7 +6,7 @@ conda_build:
 conda_build_tool: rattler-build
 conda_forge_output_validation: true
 bot:
-  inspection: hint-all
+  inspection: hint-grayskull
 build_platform:
   osx_arm64: osx_64
 test: native_and_emulated
