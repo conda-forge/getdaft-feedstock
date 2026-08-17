@@ -46,7 +46,7 @@ requirements:
     - python
     # Ranges match daft v0.7.19's pyproject.toml dependencies; pip check
     # fails if the upper caps aren't honored. Revisit on the next daft bump.
-    - pyarrow >=16.0.0,<25.0.0
+    - pyarrow >=16.0.0,<26.0.0
     - fsspec <2026.5.0
     - tqdm <4.68.0
     - typing_extensions >=4.0.0
