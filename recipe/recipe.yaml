@@ -13,7 +13,7 @@ source:
   sha256: 91ba34badbdb9538ac79d0e9349c23f21bf79901e6ad01c22808e33311d46c19
 
 build:
-  number: 0
+  number: 1
   skip:
     # daft does not build cleanly on Windows for the 0.7.x series; Windows
     # support is being handled separately (see feedstock PR #68).
